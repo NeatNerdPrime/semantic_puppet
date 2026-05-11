@@ -10,6 +10,8 @@ on:
 jobs:
   rspec_tests:
     name: ${{ matrix.cfg.os }}(ruby ${{ matrix.cfg.ruby }})
+    env:
+      BUNDLE_WITH: 'development'
     strategy:
       matrix:
         cfg:
