@@ -19,7 +19,7 @@ jobs:
           bundler-cache: true
       - name: Create lock
         run: bundle lock
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -33,4 +33,7 @@ jobs:
           WS_USERKEY: ${{ secrets.MEND_TOKEN }}
           WS_PRODUCTNAME: Puppet Core
           WS_PROJECTNAME: ${{ github.event.repository.name }}
-
+          WS_INCLUDE: Gemfile.lock
+          WS_FILESYSTEMSCAN: false
+          WS_RESOLVEALLDEPENDENCIES: false
+          WS_RUBY_RESOLVEDEPENDENCIES: true
